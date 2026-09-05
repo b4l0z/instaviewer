@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InstaViewer · Accueil</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="splash" id="splash">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="splash-icon">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="4.2" />
+        <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
+      </svg>
+      <span class="splash-text">InstaViewer</span>
+    </div>
+
+    <div class="topbar">
+      <div class="brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="4.2" />
+          <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
+        </svg>
+        <span>InstaViewer</span>
+      </div>
+      <button class="theme-toggle" id="themeToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" /></svg>
+        <span>Mode sombre</span>
+      </button>
+    </div>
+
+    <div class="main">
+      <div class="page-head">
+        <div>
+          <h1>Vue d'ensemble</h1>
+          <p>Un aperçu clair</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <div class="num" id="statFollowers"></div>
+          <div class="label">Abonnés</div>
+        </div>
+        <div class="stat-card">
+          <div class="num" id="statFollowing"></div>
+          <div class="label">Abonnements</div>
+        </div>
+        <div class="stat-card warn">
+          <div class="num" id="statNotBack"></div>
+          <div class="label">Ne te suivent pas</div>
+        </div>
+        <div class="stat-card">
+          <div class="num" id="statPending"></div>
+          <div class="label">Demandes en attente</div>
+        </div>
+      </div>
+
+      <div class="balance">
+        <div class="balance-head">
+          <span>Équilibre de tes abonnements</span>
+          <span id="baccount"></span>
+        </div>
+        <div class="balance-bar">
+          <div id="bbmutual" style="background: #0095f6"></div>
+          <div id="bbnotback" style="background: #ed4956"></div>
+          <div id="bbpending" style="background: #f5c518"></div>
+        </div>
+        <div class="balance-legend">
+          <div class="item"><span class="swatch" style="background: #0095f6"></span>Suivi mutuel<span id="bbdescmutual"></span></div>
+          <div class="item"><span class="swatch" style="background: #ed4956"></span>Ne te suivent pas<span id="bbdescnotback"></span></div>
+          <div class="item"><span class="swatch" style="background: #f5c518"></span>Comptes privés en attente<span id="bbdescpending"></span></div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="notback">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21v-1a8 8 0 0 1 12.5-6.6M18 18l4 4m0-4-4 4" />
+          </svg>
+          Ne te suivent pas <span class="count" id="countNotBack">0</span>
+        </button>
+        <button class="tab-btn" data-tab="notfollowing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21v-1a8 8 0 0 1 16 0v1" />
+            <path d="M20 8v4M22 10h-4" />
+          </svg>
+          Tu ne suis pas <span class="count" id="countNotFollowing">0</span>
+        </button>
+        <button class="tab-btn" data-tab="pending">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3.5 2" />
+          </svg>
+          Demandes en attente <span class="count" id="countPending">0</span>
+        </button>
+        <button class="tab-btn" data-tab="blocked">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9" />
+            <path d="m5.5 5.5 13 13" />
+          </svg>
+          Comptes bloqués <span class="count" id="countBlocked">0</span>
+        </button>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <circle cx="11" cy="11" r="7.2" />
+            <path d="m20.5 20.5-4.6-4.6" />
+          </svg>
+          <input class="search-input" id="searchInput" placeholder="Rechercher un compte" />
+        </div>
+      </div>
+
+      <div class="panel active" id="panel-notback">
+        <div class="list" id="list-notback"></div>
+      </div>
+
+      <div class="panel" id="panel-notfollowing">
+        <div class="list" id="list-notfollowing"></div>
+      </div>
+
+      <div class="panel" id="panel-pending">
+        <div class="list" id="list-pending"></div>
+      </div>
+
+      <div class="panel" id="panel-blocked">
+        <div class="list" id="list-blocked"></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <nav class="footer-links">
+        <a href="#">À propos</a>
+        <!--<a href="#">Aide</a>
+        <a href="#">Contact</a>-->
+      </nav>
+      <div class="footer-bottom">
+        <select class="footer-lang" aria-label="Langue">
+          <option>Français</option>
+        </select>
+        <span class="footer-copy">© 2026 InstaViewer</span>
+      </div>
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

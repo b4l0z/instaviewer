@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InstaViewer · À propos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="back-btn" id="backBtn" aria-label="Retour">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6" /></svg>
+        </button>
+        <div class="brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="4.2" />
+            <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
+          </svg>
+          <span>InstaViewer</span>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" /></svg>
+        <span>Mode sombre</span>
+      </button>
+    </div>
+
+    <div class="main">
+      <div class="about-section">
+        <h2>À propos</h2>
+        <p>Instaviewer n'est ni promu par, ni affilié à Instagram.</p>
+        <p>Instaviewer est un simple interpreteur des données ; il n'interagit à aucun moment avec Instagram : aucune API n'est utilisée. Le script lit uniquement l'archive de données que vous avez téléchargée depuis les serveurs d'Instagram.</p>
+        <p>Vos données sont uniquement traitées par ce script en local, sur votre ordinateur. Lors de l'utilisation de ce script, aucune donnée n'est envoyée sur Internet, ni stockée par Instaviewer.</p>
+        <p>Les données visibles ici correspondent à l'état de votre compte au moment de l'exportation de l'archive depuis les serveurs d'Instagram ; aucune donnée n'est actualisée en direct.</p>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("backBtn").addEventListener("click", () => {
+        history.back();
+      });
+
+      document.getElementById("themeToggle").addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        const label = document.querySelector("#themeToggle span");
+        label.textContent = document.body.classList.contains("dark") ? "Mode clair" : "Mode sombre";
+      });
+    </script>
+  </body>
+</html>

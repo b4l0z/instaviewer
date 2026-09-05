@@ -1,0 +1,12 @@
+{
+  "version": "v1.0.0",
+  "author": "b4l0z",
+  "dependencies": {
+    "adm-zip": "^0.6.0",
+    "dayjs": "^1.11.23",
+    "express": "^5.2.1",
+    "http": "^0.0.1-security",
+    "open": "^8.4.2",
+    "socket.io": "^4.8.3"
+  }
+}
